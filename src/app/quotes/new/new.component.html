@@ -1,0 +1,22 @@
+<div>
+	<h1>Add a Quote</h1>
+	<form action="">
+		<textarea name="quote" id="quote" cols="30" rows="10"
+		required
+		minlength="4" 
+		[(ngModel)]="quote.quote"
+		#quote='ngModel'
+		></textarea>
+		<p *ngIf="quote.errors && quote.errors.hasOwnProperty('required')">Need quote pls.</p>
+		<p *ngIf="quote.errors && quote.errors.hasOwnProperty('minlength')">Quote needs to be at least 4 chars.</p>
+
+		<label for="author">Author</label>
+		<input type="text" name="author" id="author"
+		required
+		[(ngModel)]="quote.author"
+		#author='ngModel'
+		>
+		<p *ngIf="author.errors && author.errors.hasOwnProperty('required')">Need author pls.</p>
+		<button (click)='addQuoteEvent($event)' [disabled]='quote.errors || author.errors'>Add Quote</button>
+	</form>
+</div>

@@ -1,0 +1,2 @@
+<app-new (quoteEventEmitter)='addQuote($event)'></app-new>
+<app-list [quotesList]="quotes" (voteEmitter)='voteChg($event)' (deleteVoteEmitter)='deleteVote($event)'></app-list>
